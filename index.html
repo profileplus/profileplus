@@ -1,0 +1,1343 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Profile Plus — Enrich · Empower · Emerge</title>
+<meta name="description" content="Profile Plus is Coimbatore's premier English communication & proficiency training academy. One-on-one coaching for schools, colleges and professionals." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,300..900,0..100,0..1&family=Manrope:wght@300..800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: {
+          serif: ['"Fraunces"', 'serif'],
+          sans: ['"Manrope"', 'system-ui', 'sans-serif'],
+          mono: ['"JetBrains Mono"', 'monospace'],
+        },
+        colors: {
+          paper: '#F4F1E8',
+          paper2: '#EAE5D6',
+          ink: '#0E1115',
+          ink2: '#1E232A',
+          mute: '#6C7480',
+          cyan1: '#00E5E5',
+          cyan2: '#00B6B6',
+          cyans: '#C6F4F2',
+        },
+      },
+    },
+  };
+</script>
+
+<style>
+  :root {
+    --cyan: #00E5E5;
+    --cyan-2: #00B6B6;
+    --cyan-soft: #C6F4F2;
+    --ink: #0E1115;
+    --ink-2: #1E232A;
+    --mute: #6C7480;
+    --paper: #F4F1E8;
+    --paper-2: #EAE5D6;
+  }
+
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Manrope", system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+  }
+
+  /* Subtle grain over everything */
+  body::before {
+    content: "";
+    position: fixed; inset: 0;
+    pointer-events: none;
+    z-index: 100;
+    opacity: 0.06;
+    mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.6 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  }
+
+  .display {
+    font-family: "Fraunces", serif;
+    font-variation-settings: "opsz" 144, "SOFT" 30, "WONK" 0;
+    letter-spacing: -0.035em;
+    line-height: 0.94;
+  }
+  .display-italic {
+    font-family: "Fraunces", serif;
+    font-style: italic;
+    font-variation-settings: "opsz" 144, "SOFT" 60, "WONK" 1;
+    letter-spacing: -0.025em;
+  }
+  .eyebrow {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--ink);
+    opacity: .72;
+  }
+  .lead { line-height: 1.7; color: #2A2F36; }
+
+  /* Logo monogram inside little cyan oval */
+  .pill-mono {
+    display:inline-flex; align-items:center; justify-content:center;
+    padding: 4px 10px 5px;
+    background: var(--ink);
+    color: var(--paper);
+    border-radius: 999px;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+
+  /* Cyan accent underline */
+  .accent {
+    position: relative;
+    display: inline-block;
+    z-index: 0;
+  }
+  .accent::after {
+    content: "";
+    position: absolute;
+    left: -2%; right: -2%;
+    bottom: 0.08em;
+    height: 0.42em;
+    background: var(--cyan);
+    z-index: -1;
+    transform: skewX(-8deg);
+    opacity: 0.85;
+  }
+
+  /* Card surface with layered look */
+  .surface {
+    background: #FFFFFF;
+    border: 1px solid rgba(14,17,21,0.08);
+    box-shadow:
+      0 1px 0 rgba(14,17,21,0.04),
+      0 14px 30px -20px rgba(14,17,21,0.18),
+      0 40px 60px -40px rgba(0,182,182,0.16);
+  }
+  .surface-ink {
+    background: var(--ink);
+    color: var(--paper);
+  }
+
+  /* Button */
+  .btn {
+    display:inline-flex; align-items:center; gap:.6rem;
+    padding: 14px 22px;
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: 14.5px;
+    letter-spacing: -0.005em;
+    transition: transform .35s cubic-bezier(.2,.8,.2,1), background .25s, color .25s, box-shadow .35s;
+    will-change: transform;
+  }
+  .btn-primary {
+    background: var(--ink);
+    color: var(--paper);
+    box-shadow: 0 12px 28px -14px rgba(14,17,21,0.5), inset 0 0 0 1px rgba(255,255,255,0.04);
+  }
+  .btn-primary:hover { transform: translateY(-2px); background: #000; }
+  .btn-primary .dot { width:7px; height:7px; border-radius:999px; background: var(--cyan); box-shadow: 0 0 0 4px rgba(0,229,229,0.18); }
+  .btn-ghost {
+    background: transparent;
+    color: var(--ink);
+    box-shadow: inset 0 0 0 1px rgba(14,17,21,0.18);
+  }
+  .btn-ghost:hover { transform: translateY(-2px); box-shadow: inset 0 0 0 1px var(--ink); }
+
+  /* Nav link */
+  .nav-link {
+    position: relative;
+    font-size: 14px;
+    color: var(--ink);
+    opacity: .8;
+    transition: opacity .2s;
+  }
+  .nav-link:hover { opacity: 1; }
+  .nav-link::after {
+    content:""; position:absolute; left:0; bottom:-6px;
+    height: 6px; width: 0;
+    background: var(--cyan);
+    transition: width .35s cubic-bezier(.2,.8,.2,1);
+  }
+  .nav-link:hover::after { width: 100%; }
+
+  /* Marquee */
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  .marquee { animation: marquee 40s linear infinite; }
+
+  /* Hero blob */
+  .blob {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* Numbered ticks */
+  .tick {
+    width: 26px; height: 26px;
+    border-radius: 999px;
+    background: var(--cyan);
+    color: var(--ink);
+    display:inline-flex; align-items:center; justify-content:center;
+    font-family: "JetBrains Mono", monospace;
+    font-weight: 600; font-size: 12px;
+    flex-shrink: 0;
+  }
+
+  /* Section number */
+  .sec-num {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    color: var(--mute);
+  }
+
+  /* Animated reveal */
+  .reveal { opacity: 0; transform: translateY(20px); transition: opacity .9s cubic-bezier(.2,.8,.2,1), transform .9s cubic-bezier(.2,.8,.2,1); }
+  .reveal.in { opacity: 1; transform: translateY(0); }
+
+  /* Skill chip */
+  .chip {
+    display: inline-flex; align-items: center; gap: .55rem;
+    padding: 9px 14px 10px;
+    border-radius: 999px;
+    background: #fff;
+    border: 1px solid rgba(14,17,21,0.08);
+    font-size: 13.5px;
+    font-weight: 500;
+    color: var(--ink);
+    transition: transform .35s cubic-bezier(.2,.8,.2,1), background .2s, border-color .2s;
+  }
+  .chip:hover {
+    transform: translateY(-2px);
+    background: var(--cyan);
+    border-color: transparent;
+  }
+  .chip .dot { width: 5px; height: 5px; border-radius: 999px; background: var(--cyan-2); }
+  .chip:hover .dot { background: var(--ink); }
+
+  /* Diagonal divider */
+  .diag {
+    background-image: linear-gradient(135deg, transparent 49.5%, rgba(14,17,21,0.07) 50%, transparent 50.5%);
+    background-size: 14px 14px;
+  }
+
+  /* Curve underline svg helper */
+  .squiggle path {
+    stroke: var(--cyan);
+    stroke-width: 3;
+    fill: none;
+    stroke-linecap: round;
+  }
+
+  /* Step rail */
+  .rail {
+    position: relative;
+  }
+  .rail::before {
+    content: "";
+    position: absolute;
+    left: 22px; top: 22px; bottom: 22px;
+    width: 2px;
+    background: repeating-linear-gradient(to bottom, var(--ink) 0 4px, transparent 4px 9px);
+    opacity: .4;
+  }
+
+  /* Gradient text */
+  .grad-text {
+    background: linear-gradient(95deg, var(--ink) 30%, var(--cyan-2) 80%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  /* Logo SVG wrapper */
+  .logo-mark { display:flex; align-items:center; gap: 10px; }
+
+  /* Card tilt on hover */
+  .lift { transition: transform .55s cubic-bezier(.2,.8,.2,1), box-shadow .55s; }
+  .lift:hover { transform: translateY(-6px); }
+
+  /* Stat blocks */
+  .stat-num {
+    font-family: "Fraunces", serif;
+    font-variation-settings: "opsz" 144, "WONK" 1;
+    font-weight: 500;
+    letter-spacing: -0.04em;
+    line-height: 1;
+  }
+
+  /* Sticky nav blur */
+  .nav-wrap {
+    backdrop-filter: blur(14px) saturate(140%);
+    -webkit-backdrop-filter: blur(14px) saturate(140%);
+    background: rgba(244, 241, 232, 0.7);
+    border-bottom: 1px solid rgba(14,17,21,0.06);
+  }
+
+  /* Quote treatment */
+  .pull-quote {
+    font-family: "Fraunces", serif;
+    font-variation-settings: "opsz" 144, "SOFT" 40, "WONK" 1;
+    letter-spacing: -0.035em;
+    line-height: 1.02;
+  }
+
+  /* Footer */
+  footer a { transition: color .2s; }
+  footer a:hover { color: var(--cyan); }
+
+  /* Curved tag (like the screenshots) */
+  .tag-curve {
+    position: relative;
+    display: inline-block;
+    padding: 8px 22px 9px 16px;
+    background: var(--cyan);
+    color: var(--ink);
+    font-weight: 700;
+    font-size: 12.5px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    clip-path: polygon(0 0, 100% 0, calc(100% - 14px) 100%, 0 100%);
+  }
+
+  /* Outline number */
+  .out-num {
+    font-family: "Fraunces", serif;
+    font-variation-settings: "opsz" 144, "WONK" 1;
+    font-weight: 700;
+    -webkit-text-stroke: 1.5px var(--ink);
+    color: transparent;
+    line-height: 0.85;
+    letter-spacing: -0.05em;
+  }
+
+  /* Reading rule */
+  .rule { height:1px; background: linear-gradient(90deg, rgba(14,17,21,0.18), rgba(14,17,21,0)); }
+
+  /* Tab styles */
+  .tab { padding: 12px 22px; border-radius: 999px; font-weight: 600; font-size: 14px; cursor: pointer; transition: all .25s; }
+  .tab.is-active { background: var(--ink); color: var(--paper); }
+  .tab:not(.is-active):hover { background: rgba(14,17,21,0.06); }
+
+  /* Hide native scrollbar (subtle) */
+  ::-webkit-scrollbar { width: 10px; height: 10px; }
+  ::-webkit-scrollbar-track { background: var(--paper); }
+  ::-webkit-scrollbar-thumb { background: rgba(14,17,21,0.25); border-radius: 999px; }
+  ::-webkit-scrollbar-thumb:hover { background: var(--ink); }
+
+  /* Hero ribbon */
+  .ribbon {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+
+  /* For small screens, adjust hero */
+  @media (max-width: 760px) {
+    .display-xl { font-size: clamp(48px, 12vw, 96px) !important; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ====== NAV ====== -->
+<header class="nav-wrap fixed top-0 inset-x-0 z-50">
+  <div class="max-w-[1320px] mx-auto px-6 lg:px-10 h-[72px] flex items-center justify-between">
+    <a href="#" class="logo-mark group">
+      <img src="brand_assets/image.png" alt="Profile Plus" class="h-9 w-auto" />
+    </a>
+    <nav class="hidden lg:flex items-center gap-9">
+      <a href="#about" class="nav-link">About</a>
+      <a href="#methodology" class="nav-link">Methodology</a>
+      <a href="#programs" class="nav-link">Programs</a>
+      <a href="#skills" class="nav-link">Skills</a>
+      <a href="#why" class="nav-link">Why Us</a>
+      <a href="#contact" class="nav-link">Contact</a>
+    </nav>
+    <div class="flex items-center gap-3">
+      <span class="hidden md:flex items-center gap-2 text-[12.5px] text-ink/70 font-mono">
+        <span class="w-1.5 h-1.5 rounded-full bg-cyan1" style="box-shadow: 0 0 0 4px rgba(0,229,229,0.22);"></span>
+        Now enrolling · Batch 2026
+      </span>
+      <a href="#contact" class="btn btn-primary"><span class="dot"></span>Book a session</a>
+    </div>
+  </div>
+</header>
+
+<!-- ====== HERO ====== -->
+<section class="relative pt-[120px] pb-24 lg:pb-32 overflow-hidden">
+  <!-- background ornaments -->
+  <div class="absolute inset-0 -z-10 overflow-hidden">
+    <div class="absolute -top-32 -right-40 w-[640px] h-[640px] rounded-full" style="background: radial-gradient(closest-side, rgba(0,229,229,0.55), rgba(0,229,229,0) 70%); filter: blur(8px);"></div>
+    <div class="absolute top-72 -left-40 w-[520px] h-[520px] rounded-full" style="background: radial-gradient(closest-side, rgba(0,182,182,0.22), rgba(0,182,182,0) 70%);"></div>
+    <!-- dot grid -->
+    <svg class="absolute right-10 bottom-10 opacity-30" width="180" height="180" viewBox="0 0 180 180">
+      <defs>
+        <pattern id="dots" width="14" height="14" patternUnits="userSpaceOnUse">
+          <circle cx="2" cy="2" r="1.2" fill="#0E1115" />
+        </pattern>
+      </defs>
+      <rect width="180" height="180" fill="url(#dots)" />
+    </svg>
+  </div>
+
+  <div class="max-w-[1320px] mx-auto px-6 lg:px-10">
+    <div class="grid lg:grid-cols-12 gap-10 items-end">
+      <!-- Left: Headline -->
+      <div class="lg:col-span-8">
+        <div class="flex items-center gap-3 mb-7">
+          <span class="pill-mono">EST · 2010 · Coimbatore</span>
+          <span class="sec-num">— English · Communication · Personality</span>
+        </div>
+
+        <h1 class="display display-xl text-ink" style="font-size: clamp(56px, 8.5vw, 140px); font-weight: 420;">
+          Untangle the<br/>
+          <span class="display-italic" style="font-weight:400;">tangled</span> <span class="accent">through</span><br/>
+          fluent <span class="display-italic">English.</span>
+        </h1>
+
+        <p class="lead mt-9 max-w-[560px] text-[17.5px]">
+          Profile Plus is a Coimbatore-based training academy crafting confident communicators
+          since 2010. We coach individuals one-on-one — to <em class="display-italic">enrich</em> the mind,
+          <em class="display-italic">empower</em> the voice, and let the leader within <em class="display-italic">emerge</em>.
+        </p>
+
+        <div class="mt-10 flex flex-wrap items-center gap-4">
+          <a href="#programs" class="btn btn-primary"><span class="dot"></span>Explore programs</a>
+          <a href="#methodology" class="btn btn-ghost">
+            Our methodology
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <div class="hidden md:flex items-center gap-3 pl-4 ml-2 border-l border-ink/15">
+            <div class="flex -space-x-2">
+              <div class="w-8 h-8 rounded-full ring-2 ring-paper bg-gradient-to-br from-cyan1 to-cyan2"></div>
+              <div class="w-8 h-8 rounded-full ring-2 ring-paper bg-gradient-to-br from-ink to-ink2"></div>
+              <div class="w-8 h-8 rounded-full ring-2 ring-paper bg-gradient-to-br from-paper2 to-cyan1"></div>
+            </div>
+            <div class="text-[12.5px] leading-tight">
+              <div class="font-semibold">Trusted by 8+ institutions</div>
+              <div class="text-mute">Schools · Colleges · Corporates</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: stats card -->
+      <div class="lg:col-span-4 relative">
+        <div class="surface rounded-3xl p-7 relative overflow-hidden">
+          <div class="flex items-center justify-between mb-6">
+            <span class="eyebrow">// the practice</span>
+            <span class="text-[11px] font-mono text-mute">01 / 04</span>
+          </div>
+
+          <div class="grid grid-cols-2 gap-x-6 gap-y-7">
+            <div>
+              <div class="stat-num text-[64px]">15<span class="text-cyan2">+</span></div>
+              <div class="text-[12.5px] text-mute mt-1">Years coaching<br/>communicators</div>
+            </div>
+            <div>
+              <div class="stat-num text-[64px]">1:1</div>
+              <div class="text-[12.5px] text-mute mt-1">Personalised<br/>training format</div>
+            </div>
+            <div>
+              <div class="stat-num text-[64px]">3<span class="text-cyan2">·</span>4<span class="text-cyan2">h</span></div>
+              <div class="text-[12.5px] text-mute mt-1">Daily crash-<br/>course load</div>
+            </div>
+            <div>
+              <div class="stat-num text-[64px]">15<span class="text-cyan2">+</span></div>
+              <div class="text-[12.5px] text-mute mt-1">Skill modules<br/>covered</div>
+            </div>
+          </div>
+
+          <div class="mt-7 pt-6 border-t border-ink/10 flex items-center justify-between">
+            <span class="text-[12.5px] text-mute">Tailor-made for every learner</span>
+            <span class="text-[11px] font-mono text-cyan2">PP/01</span>
+          </div>
+
+          <!-- corner ornament -->
+          <svg class="absolute -bottom-6 -right-6 opacity-90" width="120" height="120" viewBox="0 0 120 120">
+            <circle cx="60" cy="60" r="40" fill="none" stroke="#00E5E5" stroke-width="2" stroke-dasharray="3 5"/>
+            <circle cx="60" cy="60" r="6" fill="#0E1115"/>
+          </svg>
+        </div>
+
+        <!-- floating chip behind card -->
+        <div class="hidden lg:block absolute -top-6 -left-10 rotate-[-6deg] surface-ink rounded-full px-4 py-2 text-[12px] font-mono tracking-wide">
+          // ENRICH · EMPOWER · EMERGE
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Marquee tagline ribbon -->
+  <div class="relative mt-24 border-y border-ink/15 bg-ink text-paper py-5 overflow-hidden">
+    <div class="flex whitespace-nowrap marquee text-[18px] font-mono uppercase tracking-[0.18em]">
+      <span class="flex items-center gap-10 pr-10">
+        <span>Enrich</span><span class="text-cyan1">✦</span>
+        <span>Empower</span><span class="text-cyan1">✦</span>
+        <span>Emerge</span><span class="text-cyan1">✦</span>
+        <span>Speak the world&rsquo;s language</span><span class="text-cyan1">✦</span>
+        <span>Enrich</span><span class="text-cyan1">✦</span>
+        <span>Empower</span><span class="text-cyan1">✦</span>
+        <span>Emerge</span><span class="text-cyan1">✦</span>
+        <span>Coimbatore</span><span class="text-cyan1">✦</span>
+      </span>
+      <span class="flex items-center gap-10 pr-10" aria-hidden="true">
+        <span>Enrich</span><span class="text-cyan1">✦</span>
+        <span>Empower</span><span class="text-cyan1">✦</span>
+        <span>Emerge</span><span class="text-cyan1">✦</span>
+        <span>Speak the world&rsquo;s language</span><span class="text-cyan1">✦</span>
+        <span>Enrich</span><span class="text-cyan1">✦</span>
+        <span>Empower</span><span class="text-cyan1">✦</span>
+        <span>Emerge</span><span class="text-cyan1">✦</span>
+        <span>Coimbatore</span><span class="text-cyan1">✦</span>
+      </span>
+    </div>
+  </div>
+</section>
+
+<!-- ====== ABOUT ====== -->
+<section id="about" class="py-28 lg:py-36 relative">
+  <div class="max-w-[1320px] mx-auto px-6 lg:px-10">
+    <div class="grid lg:grid-cols-12 gap-12">
+      <div class="lg:col-span-5">
+        <div class="sticky top-32">
+          <div class="sec-num mb-6">[ 01 ] — ABOUT THE ACADEMY</div>
+          <h2 class="display text-[62px] lg:text-[88px] text-ink mb-8">
+            A decade of<br/>turning <span class="display-italic">silence</span><br/>into <span class="accent">conviction.</span>
+          </h2>
+          <div class="flex items-center gap-3">
+            <span class="tick">↳</span>
+            <span class="text-[14px] text-mute">Founded 2010 by Padma Sundar & Mr. Sundar</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="lg:col-span-7">
+        <p class="display text-[28px] lg:text-[32px] text-ink leading-[1.18]" style="font-variation-settings: 'opsz' 36, 'WONK' 0; font-weight: 380;">
+          Profile Plus is a Training Academy in Coimbatore. The main aim is to equip our students
+          with the basic skills required to make <span class="display-italic">English</span> their first language —
+          to read it, write it, and <em class="display-italic">live</em> it.
+        </p>
+
+        <p class="lead mt-8 text-[16.5px]">
+          What began in 2010 as an idea between two educators has become a small, fiercely
+          personal academy. We sit beside our students. We listen to the tangle in their
+          sentences. And we untangle it — patiently, professionally, persistently — until
+          the world&rsquo;s language sounds like their own.
+        </p>
+
+        <!-- VMG triple card -->
+        <div class="grid md:grid-cols-3 gap-4 mt-12">
+          <div class="surface rounded-2xl p-6 lift relative overflow-hidden">
+            <div class="flex items-center justify-between mb-7">
+              <span class="eyebrow text-cyan2">// Vision</span>
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#0E1115" stroke-width="1.5"/><circle cx="12" cy="12" r="3" fill="#00E5E5"/></svg>
+            </div>
+            <p class="text-[14.5px] leading-[1.55] text-ink2">
+              To develop personality professionally, and the skills that future leaders need to
+              face a real-time world. We believe everyone has stupendous power and adroitness.
+            </p>
+            <div class="absolute -bottom-8 -right-8 w-28 h-28 rounded-full bg-cyans opacity-50"></div>
+          </div>
+
+          <div class="surface rounded-2xl p-6 lift relative overflow-hidden">
+            <div class="flex items-center justify-between mb-7">
+              <span class="eyebrow text-cyan2">// Mission</span>
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M3 12l4-4v3h14v2H7v3z" fill="#0E1115"/></svg>
+            </div>
+            <p class="text-[14.5px] leading-[1.55] text-ink2">
+              To cultivate the potential in every individual to thrive as a global citizen — by
+              fostering a love for learning and civic engagement to achieve great knowledge.
+            </p>
+            <div class="absolute -bottom-8 -right-8 w-28 h-28 rounded-full bg-cyans opacity-50"></div>
+          </div>
+
+          <div class="surface-ink rounded-2xl p-6 lift relative overflow-hidden">
+            <div class="flex items-center justify-between mb-7">
+              <span class="eyebrow text-cyan1" style="opacity:1">// Goals</span>
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 2v20M2 12h20" stroke="#00E5E5" stroke-width="1.5"/><circle cx="12" cy="12" r="5" stroke="#00E5E5" stroke-width="1.5"/></svg>
+            </div>
+            <p class="text-[14.5px] leading-[1.55] text-paper/85">
+              To transform every individual to feel confident with the global language, and to
+              groom them to face the world on their own terms.
+            </p>
+            <div class="absolute -bottom-10 -right-10 w-32 h-32 rounded-full" style="background: radial-gradient(closest-side, rgba(0,229,229,0.35), transparent 70%);"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== METHODOLOGY ====== -->
+<section id="methodology" class="py-24 lg:py-32 bg-ink text-paper relative overflow-hidden">
+  <div class="absolute inset-0 opacity-20" style="background-image: radial-gradient(circle at 1px 1px, rgba(0,229,229,0.35) 1px, transparent 0); background-size: 28px 28px;"></div>
+
+  <div class="max-w-[1320px] mx-auto px-6 lg:px-10 relative">
+    <div class="flex items-end justify-between mb-16 flex-wrap gap-6">
+      <div>
+        <div class="sec-num mb-4" style="color:#9AA3AE">[ 02 ] — METHODOLOGY</div>
+        <h2 class="display text-[58px] lg:text-[84px]" style="color:var(--paper);">
+          One person.<br/>One <span style="color: var(--cyan)">curriculum.</span><br/>One <span class="display-italic">conversation</span> at a time.
+        </h2>
+      </div>
+      <p class="text-[16.5px] text-paper/70 max-w-md leading-[1.7]">
+        Profile Plus is proficient in over a decade of English language training, delivered
+        one-on-one. Our study material is detailed, interesting and easy to understand — and our
+        sessions are unhurried by design.
+      </p>
+    </div>
+
+    <div class="grid lg:grid-cols-3 gap-5">
+      <!-- step 1 -->
+      <div class="rounded-2xl p-7 relative" style="background: #14181E; border: 1px solid rgba(255,255,255,0.06);">
+        <div class="flex items-center justify-between mb-10">
+          <span class="out-num text-[80px]" style="-webkit-text-stroke-color: var(--cyan); color: transparent;">01</span>
+          <span class="pill-mono" style="background: var(--cyan); color: var(--ink);">DIAGNOSE</span>
+        </div>
+        <h3 class="display text-[28px] mb-3" style="color:var(--paper);">Listen first, prescribe second.</h3>
+        <p class="text-[14.5px] text-paper/65 leading-[1.65]">
+          A short conversation tells us where the tangle is — grammar, hesitation, fear of
+          speaking, accent confidence. The plan is shaped around that, not a textbook.
+        </p>
+      </div>
+      <!-- step 2 -->
+      <div class="rounded-2xl p-7 relative lg:mt-10" style="background: #14181E; border: 1px solid rgba(255,255,255,0.06);">
+        <div class="flex items-center justify-between mb-10">
+          <span class="out-num text-[80px]" style="-webkit-text-stroke-color: var(--cyan); color: transparent;">02</span>
+          <span class="pill-mono" style="background: var(--cyan); color: var(--ink);">DRILL</span>
+        </div>
+        <h3 class="display text-[28px] mb-3" style="color:var(--paper);">Practice that feels like a conversation.</h3>
+        <p class="text-[14.5px] text-paper/65 leading-[1.65]">
+          Mini-debates, role-plays, short presentations, applied grammar drills — practice that
+          is rigorous but never stiff. Mistakes happen here, not in the world outside.
+        </p>
+      </div>
+      <!-- step 3 -->
+      <div class="rounded-2xl p-7 relative lg:mt-20" style="background: #14181E; border: 1px solid rgba(255,255,255,0.06);">
+        <div class="flex items-center justify-between mb-10">
+          <span class="out-num text-[80px]" style="-webkit-text-stroke-color: var(--cyan); color: transparent;">03</span>
+          <span class="pill-mono" style="background: var(--cyan); color: var(--ink);">DEPLOY</span>
+        </div>
+        <h3 class="display text-[28px] mb-3" style="color:var(--paper);">From the classroom into the boardroom.</h3>
+        <p class="text-[14.5px] text-paper/65 leading-[1.65]">
+          Interview practice, resume drafting, public speaking, lateral thinking — every learner
+          leaves with the toolkit to walk into a room and own it.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== COURSE LEVELS ====== -->
+<section class="py-28 lg:py-36 relative">
+  <div class="max-w-[1320px] mx-auto px-6 lg:px-10">
+    <div class="grid lg:grid-cols-12 gap-12 items-start">
+      <div class="lg:col-span-5">
+        <div class="sec-num mb-6">[ 03 ] — COURSE LEVELS</div>
+        <h2 class="display text-[58px] lg:text-[78px] text-ink leading-[0.96]">
+          A staircase, not<br/>an <span class="display-italic">elevator.</span>
+        </h2>
+        <p class="lead mt-7 max-w-[440px]">
+          We work in three honest stages. You don&rsquo;t skip ahead. You earn the next step —
+          because confidence built without a foundation collapses under pressure.
+        </p>
+
+        <!-- visual ladder -->
+        <div class="mt-10 surface rounded-3xl p-7 relative overflow-hidden">
+          <svg viewBox="0 0 320 220" class="w-full">
+            <path d="M 20 200 Q 100 200 120 140 Q 140 80 220 60 Q 300 40 300 20" stroke="#00E5E5" stroke-width="3" fill="none" stroke-linecap="round"/>
+            <path d="M 20 200 Q 100 200 120 140" stroke="#0E1115" stroke-width="3" fill="none" stroke-linecap="round" opacity="0.35"/>
+            <circle cx="20" cy="200" r="9" fill="#0E1115"/>
+            <circle cx="120" cy="140" r="9" fill="#0E1115"/>
+            <circle cx="220" cy="60" r="9" fill="#0E1115"/>
+            <circle cx="300" cy="20" r="9" fill="#00E5E5" stroke="#0E1115" stroke-width="2"/>
+            <text x="34" y="216" font-family="JetBrains Mono" font-size="10" fill="#6C7480">START</text>
+            <text x="240" y="22" font-family="JetBrains Mono" font-size="10" fill="#0E1115">EMERGE</text>
+          </svg>
+          <div class="absolute top-5 right-5 text-[11px] font-mono text-mute">// progress trajectory</div>
+        </div>
+      </div>
+
+      <div class="lg:col-span-7 rail pl-0 lg:pl-2">
+        <!-- BASIC -->
+        <div class="flex gap-6 mb-10 reveal">
+          <div class="flex flex-col items-center pt-2 z-10">
+            <div class="w-12 h-12 rounded-full bg-ink text-paper grid place-items-center font-mono text-[13px] font-semibold">B</div>
+          </div>
+          <div class="flex-1 surface rounded-2xl p-7">
+            <div class="flex items-center justify-between mb-3 flex-wrap gap-2">
+              <h3 class="display text-[32px]">Basic Level</h3>
+              <span class="pill-mono" style="background:var(--cyan); color:var(--ink);">FOUNDATION</span>
+            </div>
+            <p class="text-[14.5px] text-mute mb-5">For learners building a fearless relationship with English.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="chip"><span class="dot"></span>Basics of Grammar</span>
+              <span class="chip"><span class="dot"></span>Fear Control</span>
+              <span class="chip"><span class="dot"></span>Language Enhancement</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- COMFORT -->
+        <div class="flex gap-6 mb-10 reveal">
+          <div class="flex flex-col items-center pt-2 z-10">
+            <div class="w-12 h-12 rounded-full bg-ink text-paper grid place-items-center font-mono text-[13px] font-semibold">C</div>
+          </div>
+          <div class="flex-1 surface rounded-2xl p-7">
+            <div class="flex items-center justify-between mb-3 flex-wrap gap-2">
+              <h3 class="display text-[32px]">Comfort Level</h3>
+              <span class="pill-mono" style="background:var(--cyan); color:var(--ink);">FLUENCY</span>
+            </div>
+            <p class="text-[14.5px] text-mute mb-5">For learners ready to hold their own in any conversation.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="chip"><span class="dot"></span>Fluency Development</span>
+              <span class="chip"><span class="dot"></span>Group Discussion</span>
+              <span class="chip"><span class="dot"></span>Public Speaking</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- ADVANCED -->
+        <div class="flex gap-6 reveal">
+          <div class="flex flex-col items-center pt-2 z-10">
+            <div class="w-12 h-12 rounded-full bg-cyan1 text-ink grid place-items-center font-mono text-[13px] font-semibold">A</div>
+          </div>
+          <div class="flex-1 surface-ink rounded-2xl p-7 relative overflow-hidden">
+            <div class="flex items-center justify-between mb-3 flex-wrap gap-2">
+              <h3 class="display text-[32px]" style="color:var(--paper);">Advanced Level</h3>
+              <span class="pill-mono" style="background:var(--cyan); color:var(--ink);">LEADERSHIP</span>
+            </div>
+            <p class="text-[14.5px] mb-5" style="color:rgba(244,241,232,0.7);">For learners stepping into rooms where decisions get made.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="chip" style="background:transparent; border-color:rgba(244,241,232,0.18); color:var(--paper);"><span class="dot"></span>Personality Development</span>
+              <span class="chip" style="background:transparent; border-color:rgba(244,241,232,0.18); color:var(--paper);"><span class="dot"></span>Aptitude Development</span>
+              <span class="chip" style="background:transparent; border-color:rgba(244,241,232,0.18); color:var(--paper);"><span class="dot"></span>Inter-Personal Skills</span>
+              <span class="chip" style="background:transparent; border-color:rgba(244,241,232,0.18); color:var(--paper);"><span class="dot"></span>Leadership Techniques</span>
+            </div>
+            <div class="absolute -bottom-8 -right-8 w-32 h-32 rounded-full" style="background: radial-gradient(closest-side, rgba(0,229,229,0.4), transparent 70%);"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== PROGRAMS ====== -->
+<section id="programs" class="py-28 lg:py-36 bg-paper2/50 relative overflow-hidden">
+  <div class="max-w-[1320px] mx-auto px-6 lg:px-10">
+    <div class="flex items-end justify-between mb-14 flex-wrap gap-6">
+      <div>
+        <div class="sec-num mb-5">[ 04 ] — PROGRAMS</div>
+        <h2 class="display text-[58px] lg:text-[88px] text-ink leading-[0.95]">
+          For every<br/><span class="display-italic">stage</span> of <span class="accent">life.</span>
+        </h2>
+      </div>
+      <p class="text-[16.5px] text-mute max-w-md leading-[1.7]">
+        Three flagship tracks designed around the three rooms our learners walk into next —
+        the classroom, the campus, and the corporate office.
+      </p>
+    </div>
+
+    <div class="grid lg:grid-cols-3 gap-5">
+      <!-- SCHOOLS -->
+      <div class="surface rounded-3xl p-8 relative overflow-hidden lift">
+        <div class="flex items-center justify-between mb-6">
+          <span class="tag-curve">For Schools</span>
+          <span class="out-num text-[64px]">01</span>
+        </div>
+        <h3 class="display text-[34px] mb-3 leading-[1.04]">Build the four pillars early.</h3>
+        <p class="text-[14.5px] text-mute mb-6 leading-[1.65]">
+          Designed for school-going learners, we focus on the fundamentals so they sound natural
+          long before exams demand it.
+        </p>
+        <ul class="space-y-2.5">
+          <li class="flex items-center gap-3 text-[14.5px]"><span class="tick">✓</span>Listening</li>
+          <li class="flex items-center gap-3 text-[14.5px]"><span class="tick">✓</span>Speaking</li>
+          <li class="flex items-center gap-3 text-[14.5px]"><span class="tick">✓</span>Reading</li>
+          <li class="flex items-center gap-3 text-[14.5px]"><span class="tick">✓</span>Writing</li>
+          <li class="flex items-center gap-3 text-[14.5px]"><span class="tick">✓</span>Barriers of communication</li>
+          <li class="flex items-center gap-3 text-[14.5px]"><span class="tick">✓</span>Questioning &amp; listening skills</li>
+          <li class="flex items-center gap-3 text-[14.5px]"><span class="tick">✓</span>Fluency development</li>
+        </ul>
+      </div>
+
+      <!-- COLLEGES -->
+      <div class="surface rounded-3xl p-8 relative overflow-hidden lift">
+        <div class="flex items-center justify-between mb-6">
+          <span class="tag-curve">For Colleges</span>
+          <span class="out-num text-[64px]">02</span>
+        </div>
+        <h3 class="display text-[34px] mb-3 leading-[1.04]">Get ready for the recruiter.</h3>
+        <p class="text-[14.5px] text-mute mb-6 leading-[1.65]">
+          A three-strand programme built for college students preparing for placement season
+          and the world that follows.
+        </p>
+
+        <div class="space-y-4">
+          <details class="group" open>
+            <summary class="cursor-pointer flex items-center justify-between py-2 border-t border-ink/10 text-[13px] font-semibold uppercase tracking-[0.16em]">
+              Language Enhancement
+              <span class="text-cyan2 text-lg group-open:rotate-45 transition">＋</span>
+            </summary>
+            <div class="text-[13.5px] text-mute pl-1 pb-2 leading-[1.65]">
+              Basics of Grammar · Sentence Structures · Functional Grammar · Pronunciation · Soft Skills
+            </div>
+          </details>
+          <details class="group">
+            <summary class="cursor-pointer flex items-center justify-between py-2 border-t border-ink/10 text-[13px] font-semibold uppercase tracking-[0.16em]">
+              Interviewing Skills
+              <span class="text-cyan2 text-lg group-open:rotate-45 transition">＋</span>
+            </summary>
+            <div class="text-[13.5px] text-mute pl-1 pb-2 leading-[1.65]">
+              Behavioural Aspects · Recruitment Process Deep-dive · Do's and Don'ts in an Interview · Standard Questions &amp; Expected Answers · Competency-Based Q&amp;A
+            </div>
+          </details>
+          <details class="group">
+            <summary class="cursor-pointer flex items-center justify-between py-2 border-t border-b border-ink/10 text-[13px] font-semibold uppercase tracking-[0.16em]">
+              Personality Development
+              <span class="text-cyan2 text-lg group-open:rotate-45 transition">＋</span>
+            </summary>
+            <div class="text-[13.5px] text-mute pl-1 pb-2 leading-[1.65]">
+              Briefing on Personality · Determinants · Fine-tuning · Attitude Management · Self-esteem · SWOT Analysis · Handling Adversities
+            </div>
+          </details>
+        </div>
+      </div>
+
+      <!-- PROFESSIONALS -->
+      <div class="surface-ink rounded-3xl p-8 relative overflow-hidden lift">
+        <div class="flex items-center justify-between mb-6">
+          <span class="tag-curve">For Professionals</span>
+          <span class="out-num text-[64px]" style="-webkit-text-stroke-color: var(--paper);">03</span>
+        </div>
+        <h3 class="display text-[34px] mb-3 leading-[1.04]" style="color:var(--paper);">Lead the room you&rsquo;re already in.</h3>
+        <p class="text-[14.5px] mb-6 leading-[1.65]" style="color:rgba(244,241,232,0.65);">
+          For working professionals — a focused suite of modules that sharpens execution and
+          presence in equal measure.
+        </p>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div class="rounded-xl p-3.5" style="background:#14181E; border:1px solid rgba(255,255,255,0.06);">
+            <div class="text-[11px] font-mono uppercase tracking-[0.18em] text-cyan1 mb-1">E · Time</div>
+            <div class="text-[13.5px]" style="color:var(--paper);">Time Management</div>
+          </div>
+          <div class="rounded-xl p-3.5" style="background:#14181E; border:1px solid rgba(255,255,255,0.06);">
+            <div class="text-[11px] font-mono uppercase tracking-[0.18em] text-cyan1 mb-1">F · Stress</div>
+            <div class="text-[13.5px]" style="color:var(--paper);">Stress Management</div>
+          </div>
+          <div class="rounded-xl p-3.5" style="background:#14181E; border:1px solid rgba(255,255,255,0.06);">
+            <div class="text-[11px] font-mono uppercase tracking-[0.18em] text-cyan1 mb-1">G · People</div>
+            <div class="text-[13.5px]" style="color:var(--paper);">Interpersonal Skills</div>
+          </div>
+          <div class="rounded-xl p-3.5" style="background:#14181E; border:1px solid rgba(255,255,255,0.06);">
+            <div class="text-[11px] font-mono uppercase tracking-[0.18em] text-cyan1 mb-1">H · Lead</div>
+            <div class="text-[13.5px]" style="color:var(--paper);">Leadership Qualities</div>
+          </div>
+        </div>
+
+        <p class="text-[12.5px] mt-5" style="color:rgba(244,241,232,0.55);">
+          Delegation · Problem-Solving · Team Leadership · Goal-Setting · Personal Impact · Handling Different Personality Types · and more.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== SKILLS GRID ====== -->
+<section id="skills" class="py-28 lg:py-36 relative overflow-hidden">
+  <div class="max-w-[1320px] mx-auto px-6 lg:px-10">
+    <div class="grid lg:grid-cols-12 gap-12 items-end mb-14">
+      <div class="lg:col-span-7">
+        <div class="sec-num mb-5">[ 05 ] — SKILLS DELIVERED</div>
+        <h2 class="display text-[58px] lg:text-[96px] text-ink leading-[0.94]">
+          Fifteen skills.<br/>One <span class="display-italic">confident</span><br/>communicator at the <span class="accent">end.</span>
+        </h2>
+      </div>
+      <p class="lg:col-span-5 text-[16.5px] text-mute leading-[1.75]">
+        Every learner finishes Profile Plus with the same toolkit — the building blocks of
+        confident, articulate, room-commanding English. We pick from the list below
+        depending on where you start and where you want to go.
+      </p>
+    </div>
+
+    <!-- Big skill grid -->
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-px bg-ink/10 rounded-3xl overflow-hidden surface" style="padding:1px;">
+      <!-- We'll make each cell white surface inside grid -->
+    </div>
+
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3">
+      <!-- skill cards -->
+      <a class="skill-card group" href="#contact">
+        <span class="skill-num">01</span>
+        <span class="skill-name">Grammar</span>
+        <span class="skill-arrow">↗</span>
+      </a>
+      <a class="skill-card group" href="#contact">
+        <span class="skill-num">02</span>
+        <span class="skill-name">Effective Communication</span>
+        <span class="skill-arrow">↗</span>
+      </a>
+      <a class="skill-card group" href="#contact">
+        <span class="skill-num">03</span>
+        <span class="skill-name">Fluency Development</span>
+        <span class="skill-arrow">↗</span>
+      </a>
+      <a class="skill-card group" href="#contact">
+        <span class="skill-num">04</span>
+        <span class="skill-name">Listening Skills</span>
+        <span class="skill-arrow">↗</span>
+      </a>
+      <a class="skill-card group" href="#contact">
+        <span class="skill-num">05</span>
+        <span class="skill-name">Reading Comprehension</span>
+        <span class="skill-arrow">↗</span>
+      </a>
+      <a class="skill-card group" href="#contact">
+        <span class="skill-num">06</span>
+        <span class="skill-name">Debates</span>
+        <span class="skill-arrow">↗</span>
+      </a>
+      <a class="skill-card group" href="#contact">
+        <span class="skill-num">07</span>
+        <span class="skill-name">E-mail Drafting</span>
+        <span class="skill-arrow">↗</span>
+      </a>
+      <a class="skill-card group" href="#contact">
+        <span class="skill-num">08</span>
+        <span class="skill-name">Resume Building</span>
+        <span class="skill-arrow">↗</span>
+      </a>
+      <a class="skill-card group" href="#contact">
+        <span class="skill-num">09</span>
+        <span class="skill-name">Interview Techniques</span>
+        <span class="skill-arrow">↗</span>
+      </a>
+      <a class="skill-card group" href="#contact">
+        <span class="skill-num">10</span>
+        <span class="skill-name">Stress Management</span>
+        <span class="skill-arrow">↗</span>
+      </a>
+      <a class="skill-card group" href="#contact">
+        <span class="skill-num">11</span>
+        <span class="skill-name">Group Discussions</span>
+        <span class="skill-arrow">↗</span>
+      </a>
+      <a class="skill-card group" href="#contact">
+        <span class="skill-num">12</span>
+        <span class="skill-name">Role Plays</span>
+        <span class="skill-arrow">↗</span>
+      </a>
+      <a class="skill-card group" href="#contact">
+        <span class="skill-num">13</span>
+        <span class="skill-name">Presentation Skills</span>
+        <span class="skill-arrow">↗</span>
+      </a>
+      <a class="skill-card group" href="#contact">
+        <span class="skill-num">14</span>
+        <span class="skill-name">Public Speaking</span>
+        <span class="skill-arrow">↗</span>
+      </a>
+      <a class="skill-card group skill-card--accent" href="#contact">
+        <span class="skill-num">15</span>
+        <span class="skill-name">Personality Development</span>
+        <span class="skill-arrow">↗</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .skill-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: #fff;
+    border: 1px solid rgba(14,17,21,0.08);
+    border-radius: 18px;
+    padding: 22px 20px;
+    min-height: 160px;
+    overflow: hidden;
+    transition: transform .45s cubic-bezier(.2,.8,.2,1), background .25s, color .25s;
+  }
+  .skill-card .skill-num {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    color: var(--mute);
+  }
+  .skill-card .skill-name {
+    font-family: "Fraunces", serif;
+    font-variation-settings: "opsz" 36, "WONK" 0;
+    font-size: 22px;
+    letter-spacing: -0.015em;
+    line-height: 1.05;
+    color: var(--ink);
+    margin-top: 30px;
+  }
+  .skill-card .skill-arrow {
+    position: absolute;
+    top: 16px; right: 18px;
+    font-size: 16px;
+    color: var(--mute);
+    transition: transform .35s cubic-bezier(.2,.8,.2,1), color .25s;
+  }
+  .skill-card:hover {
+    background: var(--ink);
+    transform: translateY(-4px);
+  }
+  .skill-card:hover .skill-name,
+  .skill-card:hover .skill-num { color: var(--paper); }
+  .skill-card:hover .skill-arrow { color: var(--cyan); transform: translate(2px, -2px); }
+  .skill-card--accent {
+    background: var(--cyan);
+  }
+  .skill-card--accent .skill-num,
+  .skill-card--accent .skill-name { color: var(--ink); }
+  .skill-card--accent:hover { background: var(--ink); }
+  .skill-card--accent:hover .skill-num,
+  .skill-card--accent:hover .skill-name { color: var(--paper); }
+</style>
+
+<!-- ====== WHY UNIQUE ====== -->
+<section id="why" class="py-28 lg:py-36 relative">
+  <div class="max-w-[1320px] mx-auto px-6 lg:px-10">
+    <div class="grid lg:grid-cols-12 gap-10">
+      <!-- left: big claim card -->
+      <div class="lg:col-span-5">
+        <div class="surface-ink rounded-3xl p-10 relative overflow-hidden h-full">
+          <div class="sec-num mb-5" style="color:rgba(244,241,232,0.55);">[ 06 ] — WHY PROFILE PLUS</div>
+          <h2 class="display text-[52px] lg:text-[68px]" style="color:var(--paper);">
+            Built around<br/><span class="display-italic">you</span> —<br/>not a <span style="color:var(--cyan)">timetable.</span>
+          </h2>
+
+          <div class="mt-10 space-y-5">
+            <div class="flex gap-4">
+              <span class="tick">01</span>
+              <div>
+                <div class="display text-[20px]" style="color:var(--paper);">Flexible &amp; customised schedule</div>
+                <div class="text-[13.5px]" style="color:rgba(244,241,232,0.6);">We move with your day, not against it.</div>
+              </div>
+            </div>
+            <div class="flex gap-4">
+              <span class="tick">02</span>
+              <div>
+                <div class="display text-[20px]" style="color:var(--paper);">Tailor-made programme</div>
+                <div class="text-[13.5px]" style="color:rgba(244,241,232,0.6);">A curriculum shaped to your goal.</div>
+              </div>
+            </div>
+            <div class="flex gap-4">
+              <span class="tick">03</span>
+              <div>
+                <div class="display text-[20px]" style="color:var(--paper);">Unconstricted training time</div>
+                <div class="text-[13.5px]" style="color:rgba(244,241,232,0.6);">No clock-watching. Stay until it clicks.</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- decorative bubbles -->
+          <svg class="absolute -bottom-12 -right-10 opacity-80" width="220" height="220" viewBox="0 0 220 220">
+            <circle cx="60" cy="160" r="40" fill="rgba(0,229,229,0.18)"/>
+            <circle cx="130" cy="120" r="22" fill="rgba(0,229,229,0.28)"/>
+            <circle cx="170" cy="170" r="14" fill="rgba(0,229,229,0.4)"/>
+            <circle cx="100" cy="60" r="8" fill="rgba(0,229,229,0.6)"/>
+            <circle cx="150" cy="50" r="5" fill="#00E5E5"/>
+            <circle cx="195" cy="100" r="10" fill="rgba(0,229,229,0.34)"/>
+          </svg>
+        </div>
+      </div>
+
+      <!-- right: highlights -->
+      <div class="lg:col-span-7">
+        <div class="flex items-center justify-between mb-7">
+          <h3 class="display text-[34px] text-ink">Other highlights</h3>
+          <span class="eyebrow">// PP.HIGHLIGHTS</span>
+        </div>
+
+        <div class="grid sm:grid-cols-2 gap-4">
+          <div class="surface rounded-2xl p-6 lift">
+            <div class="flex items-start gap-4">
+              <span class="grid place-items-center w-11 h-11 rounded-xl bg-cyans">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" stroke="#0E1115" stroke-width="1.6"/><path d="M4 21c1-4 4-6 8-6s7 2 8 6" stroke="#0E1115" stroke-width="1.6" stroke-linecap="round"/></svg>
+              </span>
+              <div>
+                <div class="display text-[22px] leading-[1.05]">One-on-one training</div>
+                <div class="text-[13.5px] text-mute mt-1.5 leading-[1.55]">Every session is yours. No back-row hiding.</div>
+              </div>
+            </div>
+          </div>
+          <div class="surface rounded-2xl p-6 lift">
+            <div class="flex items-start gap-4">
+              <span class="grid place-items-center w-11 h-11 rounded-xl bg-cyans">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#0E1115" stroke-width="1.6"/><path d="M12 7v5l3 2" stroke="#0E1115" stroke-width="1.6" stroke-linecap="round"/></svg>
+              </span>
+              <div>
+                <div class="display text-[22px] leading-[1.05]">3–4 hour crash courses</div>
+                <div class="text-[13.5px] text-mute mt-1.5 leading-[1.55]">Intensive daily blocks for fast track learners.</div>
+              </div>
+            </div>
+          </div>
+          <div class="surface rounded-2xl p-6 lift">
+            <div class="flex items-start gap-4">
+              <span class="grid place-items-center w-11 h-11 rounded-xl bg-cyans">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 6h16M4 12h16M4 18h10" stroke="#0E1115" stroke-width="1.6" stroke-linecap="round"/></svg>
+              </span>
+              <div>
+                <div class="display text-[22px] leading-[1.05]">Simple, unique methodology</div>
+                <div class="text-[13.5px] text-mute mt-1.5 leading-[1.55]">Built from a decade of what actually works.</div>
+              </div>
+            </div>
+          </div>
+          <div class="surface rounded-2xl p-6 lift">
+            <div class="flex items-start gap-4">
+              <span class="grid place-items-center w-11 h-11 rounded-xl bg-cyans">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M6 4h9l3 3v13H6z" stroke="#0E1115" stroke-width="1.6" stroke-linejoin="round"/><path d="M9 12h6M9 16h4" stroke="#0E1115" stroke-width="1.6" stroke-linecap="round"/></svg>
+              </span>
+              <div>
+                <div class="display text-[22px] leading-[1.05]">Exclusive book materials</div>
+                <div class="text-[13.5px] text-mute mt-1.5 leading-[1.55]">Our own curriculum — not pulled off a shelf.</div>
+              </div>
+            </div>
+          </div>
+          <div class="surface rounded-2xl p-6 lift sm:col-span-2">
+            <div class="flex items-start gap-4">
+              <span class="grid place-items-center w-11 h-11 rounded-xl bg-cyans">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1z" stroke="#0E1115" stroke-width="1.6" stroke-linejoin="round"/></svg>
+              </span>
+              <div>
+                <div class="display text-[22px] leading-[1.05]">Pleasant ambience</div>
+                <div class="text-[13.5px] text-mute mt-1.5 leading-[1.55]">A studio that feels less like a classroom and more like a conversation.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== QUOTE ====== -->
+<section class="relative py-28 lg:py-40 overflow-hidden" style="background: linear-gradient(180deg, var(--paper2) 0%, var(--paper) 100%);">
+  <!-- subtle staircase art -->
+  <svg class="absolute right-0 bottom-0 opacity-40 hidden lg:block" width="640" height="420" viewBox="0 0 640 420">
+    <path d="M 20 380 L 120 380 L 120 320 L 220 320 L 220 260 L 320 260 L 320 200 L 420 200 L 420 140 L 520 140 L 520 80 L 620 80" stroke="#0E1115" stroke-width="2" fill="none" stroke-linejoin="miter"/>
+    <path d="M 20 380 L 120 380 L 120 320 L 220 320 L 220 260 L 320 260" stroke="#00E5E5" stroke-width="3" fill="none" stroke-linejoin="miter"/>
+    <circle cx="320" cy="260" r="8" fill="#00E5E5" stroke="#0E1115" stroke-width="2"/>
+    <circle cx="620" cy="80" r="10" fill="#0E1115"/>
+  </svg>
+
+  <div class="max-w-[1320px] mx-auto px-6 lg:px-10 relative">
+    <div class="max-w-[920px]">
+      <div class="sec-num mb-8">[ 07 ] — A WORD WE LIVE BY</div>
+      <p class="pull-quote text-[58px] lg:text-[110px] text-ink">
+        There are no <span class="accent">elevators</span><br/>
+        to elevate you to success.<br/>
+        <span class="display-italic" style="color:var(--mute);">Instead,</span> step on the<br/>
+        stairs to <span class="display-italic">step up.</span>
+      </p>
+      <div class="mt-8 flex items-center gap-3">
+        <span class="w-10 h-px bg-ink"></span>
+        <span class="eyebrow">Profile Plus · House philosophy</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== CLIENTS ====== -->
+<section class="py-20 lg:py-28 border-y border-ink/10 bg-paper relative">
+  <div class="max-w-[1320px] mx-auto px-6 lg:px-10">
+    <div class="grid lg:grid-cols-12 gap-10 items-center">
+      <div class="lg:col-span-4">
+        <div class="sec-num mb-4">[ 08 ] — OUR PROUD CLIENTS</div>
+        <h3 class="display text-[40px] lg:text-[52px] text-ink leading-[0.98]">
+          In good <span class="display-italic">company.</span>
+        </h3>
+        <p class="text-[14.5px] text-mute mt-4 leading-[1.65] max-w-[300px]">
+          Trusted by schools and organisations across Coimbatore to coach their students and staff.
+        </p>
+      </div>
+      <div class="lg:col-span-8 grid grid-cols-2 md:grid-cols-4 gap-px bg-ink/8 rounded-2xl overflow-hidden" style="background-color:rgba(14,17,21,0.08);">
+        <div class="bg-paper py-10 px-6 flex items-center justify-center">
+          <span class="display text-[24px] text-ink">ROOTS</span>
+        </div>
+        <div class="bg-paper py-10 px-6 flex items-center justify-center">
+          <span class="display text-[24px] text-ink">CRI <span class="display-italic" style="color:var(--cyan-2);">Pride</span></span>
+        </div>
+        <div class="bg-paper py-10 px-6 flex items-center justify-center">
+          <span class="display text-[24px] text-ink">LGB</span>
+        </div>
+        <div class="bg-paper py-10 px-6 flex items-center justify-center">
+          <span class="display text-[22px] text-ink">GRD</span>
+        </div>
+        <div class="bg-paper py-10 px-6 flex items-center justify-center">
+          <span class="font-mono text-[13px] tracking-[0.18em] text-ink">PUMPS &amp; FOUNDRY</span>
+        </div>
+        <div class="bg-paper py-10 px-6 flex items-center justify-center">
+          <span class="font-mono text-[13px] tracking-[0.18em] text-ink">MUSIC SCHOOL</span>
+        </div>
+        <div class="bg-paper py-10 px-6 flex items-center justify-center col-span-2">
+          <span class="display text-[24px] text-ink">Sagar International School <span class="display-italic text-mute" style="font-size:14px;">— CBSE</span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== CONTACT / CTA ====== -->
+<section id="contact" class="py-28 lg:py-36 bg-ink text-paper relative overflow-hidden">
+  <div class="absolute inset-0 opacity-30" style="background-image: radial-gradient(circle at 1px 1px, rgba(0,229,229,0.35) 1px, transparent 0); background-size: 28px 28px;"></div>
+  <div class="absolute -top-32 -right-32 w-[520px] h-[520px] rounded-full" style="background: radial-gradient(closest-side, rgba(0,229,229,0.35), transparent 70%);"></div>
+
+  <div class="max-w-[1320px] mx-auto px-6 lg:px-10 relative">
+    <div class="grid lg:grid-cols-12 gap-12">
+      <div class="lg:col-span-7">
+        <div class="sec-num mb-5" style="color:rgba(244,241,232,0.6);">[ 09 ] — BEGIN</div>
+        <h2 class="display text-[64px] lg:text-[112px] leading-[0.94]" style="color:var(--paper);">
+          Step on<br/>the <span style="color:var(--cyan);">stairs.</span><br/>
+          <span class="display-italic" style="color:rgba(244,241,232,0.65);">Today.</span>
+        </h2>
+        <p class="text-[16.5px] mt-7 max-w-[520px] leading-[1.7]" style="color:rgba(244,241,232,0.7);">
+          Visit our academy in Villankurichi, write to us, or call. We&rsquo;ll listen first — and then
+          design a programme that fits you.
+        </p>
+
+        <div class="mt-10 flex flex-wrap gap-4">
+          <a href="mailto:profileplus.info@gmail.com" class="btn" style="background:var(--cyan); color:var(--ink);">
+            <span class="dot" style="background:var(--ink); box-shadow:0 0 0 4px rgba(14,17,21,0.18);"></span>
+            Book a free intro session
+          </a>
+          <a href="tel:+919843214299" class="btn btn-ghost" style="color:var(--paper); box-shadow: inset 0 0 0 1px rgba(244,241,232,0.25);">
+            Call · 98432 14299
+          </a>
+        </div>
+      </div>
+
+      <div class="lg:col-span-5">
+        <div class="rounded-3xl p-8" style="background:rgba(244,241,232,0.04); border:1px solid rgba(244,241,232,0.1);">
+          <div class="eyebrow mb-6" style="opacity:1; color:var(--cyan);">// Visit · Write · Follow</div>
+
+          <div class="space-y-7">
+            <div>
+              <div class="text-[12px] font-mono uppercase tracking-[0.18em]" style="color:rgba(244,241,232,0.55);">Studio</div>
+              <div class="text-[16px] mt-1.5" style="color:var(--paper);">
+                No. 1, Akshaya Gardens,<br/>
+                V4 Square · 1st Floor,<br/>
+                Villankurichi Road,<br/>
+                Coimbatore — 641035.
+              </div>
+            </div>
+            <div class="rule" style="background: linear-gradient(90deg, rgba(244,241,232,0.18), rgba(244,241,232,0));"></div>
+            <div>
+              <div class="text-[12px] font-mono uppercase tracking-[0.18em]" style="color:rgba(244,241,232,0.55);">Email</div>
+              <a href="mailto:profileplus.info@gmail.com" class="text-[16px] mt-1.5 block hover:text-cyan1" style="color:var(--paper);">profileplus.info@gmail.com</a>
+            </div>
+            <div class="rule" style="background: linear-gradient(90deg, rgba(244,241,232,0.18), rgba(244,241,232,0));"></div>
+            <div>
+              <div class="text-[12px] font-mono uppercase tracking-[0.18em]" style="color:rgba(244,241,232,0.55);">Phone · WhatsApp</div>
+              <a href="tel:+919843214299" class="text-[16px] mt-1.5 block hover:text-cyan1" style="color:var(--paper);">+91 98432 14299</a>
+            </div>
+            <div class="rule" style="background: linear-gradient(90deg, rgba(244,241,232,0.18), rgba(244,241,232,0));"></div>
+            <div>
+              <div class="text-[12px] font-mono uppercase tracking-[0.18em]" style="color:rgba(244,241,232,0.55);">Online</div>
+              <a href="https://www.profileplus.co.in" class="text-[16px] mt-1.5 block hover:text-cyan1" style="color:var(--paper);">www.profileplus.co.in</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== FOOTER ====== -->
+<footer class="bg-ink text-paper border-t border-paper/10">
+  <div class="max-w-[1320px] mx-auto px-6 lg:px-10 py-14">
+    <div class="grid lg:grid-cols-12 gap-10">
+      <div class="lg:col-span-5">
+        <div class="flex items-center gap-4 mb-6">
+          <span class="w-12 h-12 rounded-2xl grid place-items-center" style="background: var(--cyan); color: var(--ink);">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+              <path d="M5 21V4.5a2.5 2.5 0 0 1 2.5-2.5h5A4.5 4.5 0 0 1 17 6.5v0A4.5 4.5 0 0 1 12.5 11H8" stroke="#0E1115" stroke-width="2" stroke-linecap="round"/>
+              <circle cx="18" cy="18" r="2" fill="#0E1115"/>
+            </svg>
+          </span>
+          <div>
+            <div class="display text-[26px] leading-none" style="color:var(--paper);">Profile<span class="display-italic" style="color:var(--cyan);"> Plus</span></div>
+            <div class="text-[10.5px] font-mono uppercase tracking-[0.22em] mt-1.5" style="color:rgba(244,241,232,0.55);">Enrich · Empower · Emerge</div>
+          </div>
+        </div>
+        <p class="text-[14px] max-w-[380px] leading-[1.7]" style="color:rgba(244,241,232,0.6);">
+          Profile Plus English Training Academy · Crafting confident communicators in Coimbatore
+          since 2010.
+        </p>
+      </div>
+      <div class="lg:col-span-2">
+        <div class="text-[12px] font-mono uppercase tracking-[0.18em] mb-4" style="color:rgba(244,241,232,0.5);">Explore</div>
+        <ul class="space-y-2 text-[14px]">
+          <li><a href="#about">About</a></li>
+          <li><a href="#methodology">Methodology</a></li>
+          <li><a href="#programs">Programs</a></li>
+          <li><a href="#skills">Skills</a></li>
+        </ul>
+      </div>
+      <div class="lg:col-span-2">
+        <div class="text-[12px] font-mono uppercase tracking-[0.18em] mb-4" style="color:rgba(244,241,232,0.5);">Programs</div>
+        <ul class="space-y-2 text-[14px]">
+          <li><a href="#programs">For Schools</a></li>
+          <li><a href="#programs">For Colleges</a></li>
+          <li><a href="#programs">For Professionals</a></li>
+          <li><a href="#programs">Crash Course</a></li>
+        </ul>
+      </div>
+      <div class="lg:col-span-3">
+        <div class="text-[12px] font-mono uppercase tracking-[0.18em] mb-4" style="color:rgba(244,241,232,0.5);">Follow · @profileplus</div>
+        <div class="flex flex-wrap gap-2">
+          <a href="#" class="w-10 h-10 grid place-items-center rounded-full border border-paper/20 hover:bg-cyan1 hover:text-ink hover:border-cyan1 transition">In</a>
+          <a href="#" class="w-10 h-10 grid place-items-center rounded-full border border-paper/20 hover:bg-cyan1 hover:text-ink hover:border-cyan1 transition">Ig</a>
+          <a href="#" class="w-10 h-10 grid place-items-center rounded-full border border-paper/20 hover:bg-cyan1 hover:text-ink hover:border-cyan1 transition">Fb</a>
+          <a href="#" class="w-10 h-10 grid place-items-center rounded-full border border-paper/20 hover:bg-cyan1 hover:text-ink hover:border-cyan1 transition">Yt</a>
+          <a href="#" class="w-10 h-10 grid place-items-center rounded-full border border-paper/20 hover:bg-cyan1 hover:text-ink hover:border-cyan1 transition">Pi</a>
+        </div>
+      </div>
+    </div>
+    <div class="mt-12 pt-6 border-t border-paper/10 flex items-center justify-between flex-wrap gap-4 text-[12.5px] font-mono" style="color:rgba(244,241,232,0.5);">
+      <span>© 2010–2026 · Profile Plus English Training Academy · Coimbatore</span>
+      <span>· Site crafted with care ·</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Reveal on scroll
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll(".reveal").forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>
